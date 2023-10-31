@@ -3,10 +3,11 @@
 import { MenuIcon, ShoppingCartIcon, LogInIcon, LogOutIcon, PercentIcon, ListOrderedIcon, HomeIcon } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react"
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Separator } from "@radix-ui/react-separator";
+import Link from "next/link";
 
 const Header = () => {
 
@@ -78,10 +79,14 @@ const Header = () => {
                             Ofertas
                         </Button>
 
-                        <Button variant="outline" className="w-full justify-start gap-2">
-                            <ListOrderedIcon />
-                            Catálogo
-                        </Button>
+                        <SheetClose asChild>
+                            <Link href="/catalog">
+                                <Button variant="outline" className="w-full justify-start gap-2">
+                                    <ListOrderedIcon />
+                                    Catálogo
+                                </Button>
+                            </Link>
+                        </SheetClose>
 
                     </div>
 
@@ -90,9 +95,11 @@ const Header = () => {
             </Sheet>
 
 
-            <h1 className="font-semibold text-lg">
-                <span className="text-primary">GG</span> Store
-            </h1>
+            <Link href="/">
+                <h1 className="font-semibold text-lg">
+                    <span className="text-primary">GG</span> Store
+                </h1>
+            </Link>
 
             <Button size="icon" variant="outline">
                 <ShoppingCartIcon />
