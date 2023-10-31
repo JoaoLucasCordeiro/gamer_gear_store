@@ -43,7 +43,7 @@ const Header = () => {
                                         {data.user.name?.[0].toUpperCase()}
                                     </AvatarFallback>
 
-                                    {data.user.image && <AvatarImage src={data.user.image} className="w-[50px]" />}
+                                    {data.user.image && <AvatarImage src={data.user.image} className="w-[50px] rounded-full" />}
                                 </Avatar>
 
                                 <p className="font-medium text-primary">{data.user.name}</p>
